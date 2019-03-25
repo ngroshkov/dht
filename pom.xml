@@ -36,11 +36,6 @@
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-js</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
@@ -110,30 +105,6 @@
                             </sourceDirs>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>compile-js</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>js</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <sourceDir>${project.basedir}/src/main/js</sourceDir>
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>test-compile-js</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>test-js</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <sourceDir>${project.basedir}/src/test/js</sourceDir>
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
@@ -197,7 +168,7 @@
                             <outputDirectory>${project.build.directory}/classes/static/js</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/js</directory>
+                                    <directory>${project.basedir}/src/main/js</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -220,24 +191,6 @@
                                     <groupId>${project.groupId}</groupId>
                                     <artifactId>${project.artifactId}</artifactId>
                                     <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-js</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.jetbrains.kotlin</groupId>
-                                    <artifactId>kotlin-stdlib-js</artifactId>
-                                    <version>${kotlin.version}</version>
-                                    <outputDirectory>${project.build.directory}/classes/static/js/lib</outputDirectory>
-                                    <includes>*.js</includes>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
