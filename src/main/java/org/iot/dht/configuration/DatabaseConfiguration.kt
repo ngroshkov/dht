@@ -20,7 +20,10 @@ import org.springframework.context.annotation.Profile
  * Created by Nikolay Groshkov on 26-Mar-2019.
  */
 @Configuration
-@EnableDynamoDBRepositories(basePackages = ["org.iot.dht.repository"])
+@EnableDynamoDBRepositories(
+        basePackages = ["org.iot.dht.repository"],
+        mappingContextRef = "dynamoDBMappingContext"
+)
 class DatabaseConfiguration {
 
     @Value("\${amazon.aws.accesskey}")
@@ -47,7 +50,6 @@ class DatabaseConfiguration {
                     .withRegion(Regions.EU_WEST_1).build()
 
     @Bean
-    @Profile("rest")
     fun dynamoDBMappingContext(): DynamoDBMappingContext = DynamoDBMappingContext()
 
 }
