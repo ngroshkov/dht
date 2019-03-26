@@ -14,7 +14,7 @@ import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRep
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Profile
+import org.springframework.context.annotation.PropertySource
 
 /**
  * Created by Nikolay Groshkov on 26-Mar-2019.
@@ -24,6 +24,7 @@ import org.springframework.context.annotation.Profile
         basePackages = ["org.iot.dht.repository"],
         mappingContextRef = "dynamoDBMappingContext"
 )
+@PropertySource("classpath:aws.properties")
 class DatabaseConfiguration {
 
     @Value("\${amazon.aws.accesskey}")
