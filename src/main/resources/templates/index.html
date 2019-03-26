@@ -3,10 +3,72 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.css">
 </head>
+<style>
+    html { height:100%; }
+    body { position:absolute; top:0; bottom:0; right:0; left:0; }
+
+    .container {
+        height: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box {
+        text-align: center;
+        font-size: 30px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .box-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 320px;
+    }
+
+    .box-left {
+        flex: 1;
+    }
+
+    .box-right {
+        flex: 1;
+    }
+
+    .box-bottom {
+        flex: 1;
+    }
+
+
+    .axis text {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+</style>
 <body>
-  <p th:text="'Hello, World!'"/>
-  <script th:src="@{https://d3js.org/d3.v5.min.js}"></script>
-  <script th:src="@{js/index.js}"></script>
+    <div class="container">
+        <div class="box box-top">
+            <div id="current" class="box box-left"></div>
+            <div id="calendar" class="box box-right"></div>
+        </div>
+        <div id="chart" class="box box-bottom"></div>
+    </div>
+
+    <script th:src="@{https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.lang.ru.js}"></script>
+    <script th:src="@{https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.js}"></script>
+    <script th:src="@{https://d3js.org/d3.v4.min.js}"></script>
+    <script th:src="@{js/index.js}"></script>
 </body>
 </html>
