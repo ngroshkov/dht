@@ -2,7 +2,6 @@ package org.iot.dht.repository
 
 import org.iot.dht.configuration.DatabaseConfiguration
 import org.iot.dht.data.DHT
-import org.junit.Assert.assertFalse
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,6 +9,7 @@ import org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoCon
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import java.util.function.Consumer
+import kotlin.test.assertFalse
 
 /**
  * Created by Nikolay Groshkov on 26-Mar-2019.

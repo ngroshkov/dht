@@ -153,13 +153,12 @@ myCalendar.onDateClick(function(event, d) {
 });
 
 // data
-fetch("api/dhts?projection=dht")
+fetch("shadow")
     .then(function(response) { return response.json(); })
     .then(function(response) {
-        actual = response._embedded.dhts.sort(function(a, b){return b.timestamp - a.timestamp})[0];
-        d3.select(".lastTimestamp").datum(actual).text(function(d) {return formatTime(new Date(d.timestamp*1000))});
-        d3.select(".lastTemperature").datum(actual).text(function(d) {return "Tемпература: " + d.temperature + "°C"});
-        d3.select(".lastHumidity").datum(actual).text(function(d) {return "Влажность: " + d.humidity + "%"});
+        d3.select(".lastTimestamp").datum(response).text(function(d) {return formatTime(new Date(d.timestamp*1000))});
+        d3.select(".lastTemperature").datum(response).text(function(d) {return "Tемпература: " + d.temperature + "°C"});
+        d3.select(".lastHumidity").datum(response).text(function(d) {return "Влажность: " + d.humidity + "%"});
     });
 
 function fetchOnDate(date) {
