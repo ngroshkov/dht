@@ -85,6 +85,7 @@ svg.append("g").attr("class", "tempAxis");
 svg.append("g").attr("class", "humAxis");
 svg.append("path").attr("class", "line tempLine").attr("transform", "translate(40, 20)");
 svg.append("path").attr("class", "line humLine").attr("transform", "translate(40, 20)");
+svg.append("g").attr("class", "grid tempGrid").attr("transform", "translate(40, 20)");
 
 d3.select(".title").datum(date)
     .attr("fill", "black")
@@ -119,6 +120,7 @@ var resize = function() {
     d3.select(".humAxis").attr("transform", "translate(" + (width - 40)  + ", 20)").call(humAxis);
     d3.select(".tempLabel").attr("x", 0).attr("y", 0).attr("dy", "12");
     d3.select(".humLabel").attr("x", 0).attr("y", 0).attr("dy", "-4");
+    d3.select(".tempGrid").call(d3.axisLeft(tempScale).tickSize(-(width-80)).tickFormat(''));
 
     d3.select(".tempLine").datum(data).attr("d", tempLine);
     d3.select(".humLine").datum(data).attr("d", humLine);

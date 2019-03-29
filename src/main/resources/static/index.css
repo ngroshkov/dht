@@ -60,6 +60,10 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
     fill: red;
 }
 
+.tempGrid line {
+    stroke: red;
+}
+
 .humAxis line{
     stroke: blue;
 }
@@ -70,4 +74,13 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; }
 
 .humAxis text{
     fill: blue;
+}
+
+.grid line {
+    stroke-opacity: 0.1;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
 }
