@@ -5,3 +5,5 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 /src/main/resources/aws.properties
+/src/main/resources/*.pem.crt
+/src/main/resources/*.pem.key

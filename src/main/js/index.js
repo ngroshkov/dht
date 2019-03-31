@@ -131,9 +131,9 @@ resize();
 
 // calendar
 c = calendar.append("div")
-    .attr("class", "classic-theme");
+    .attr("class", "classic-theme").attr("align", "right").style("min-width", "290px");
 var myCalendar = jsCalendar.new({
-    target : c._groups[0][0],
+    target : c.node(),
     date : date,
     navigator : true,
     navigatorPosition : "right",
@@ -183,6 +183,21 @@ function fetchOnDate(date) {
                 .attr('fill', 'none')
                 .attr('stroke', "blue")
                 .attr('stroke-width', '1.5');
+
+            var tempLineLength = d3.select(".tempLine").node().getTotalLength();
+            var humLineLength = d3.select(".humLine").node().getTotalLength();
+
+            d3.select(".tempLine")
+                .attr('stroke-dasharray', tempLineLength + ' ' + tempLineLength)
+                .attr('stroke-dashoffset', tempLineLength)
+                .transition().duration(3000)
+                .attr('stroke-dashoffset', 0);
+            d3.select(".humLine")
+                .attr('stroke-dasharray', humLineLength + ' ' + humLineLength)
+                .attr('stroke-dashoffset', humLineLength)
+                .transition().duration(3000)
+                .attr('stroke-dashoffset', 0)
+            ;
         });
 }
 
