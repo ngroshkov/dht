@@ -14,9 +14,9 @@ Page: http://dht22.eu-west-1.elasticbeanstalk.com
 ## Hardware
 
 ### Assemble the circuit
-![Alt text](images/esp8266_firmware_upload_mode.png?raw=true "ESP8266 Firmware Upload Mode")
+![Alt text](images/esp8266_firmware_upload_mode.png "ESP8266 Firmware Upload Mode")
 
-![Alt text](images/work_mode.png?raw=true "Work Mode")
+![Alt text](images/work_mode.png "Work Mode")
 
 ![Alt text](images/photo.jpg?raw=true "Work Mode")
 
